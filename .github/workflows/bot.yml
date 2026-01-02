@@ -1,5 +1,6 @@
 name: Telegram Bot
 
+# Trigger: ogni ora + possibilità di avvio manuale
 on:
   schedule:
     - cron: '0 * * * *'
@@ -8,16 +9,23 @@ on:
 jobs:
   run-bot:
     runs-on: ubuntu-latest
+
     steps:
+      # Checkout del repo
       - uses: actions/checkout@v3
 
+      # Setup Python
       - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
+      # Install dependencies
       - name: Install dependencies
         run: pip install feedparser python-telegram-bot
 
+      # Run bot con i secrets come env
       - name: Run bot
         run: python bot/main.py
-
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
