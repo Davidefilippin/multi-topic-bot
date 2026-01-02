@@ -1,10 +1,6 @@
-from fetcher import fetch_articles
+import os
 from publisher import send_message
 
-def main():
-    articles = fetch_articles()
-    for article in articles:
-        send_message(article["title"], article["link"])
-
+# Invia un messaggio di test
 if __name__ == "__main__":
-    main()
+    send_message("✅ Test completato!", "Il bot è collegato correttamente al canale.")
