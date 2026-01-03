@@ -1,5 +1,7 @@
-from publisher import send_message
+from publisher import send_message_sync
 
 if __name__ == "__main__":
-    # Messaggio di test per verificare il canale
-    send_message("✅ Test completato!", "Il bot è collegato correttamente al canale.")
+    send_message_sync(
+        "✅ BOT ATTIVO",
+        "Se vedi questo messaggio, il bot funziona al 100% 🚀"
+    )
