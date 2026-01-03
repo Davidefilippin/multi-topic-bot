@@ -1,7 +1,11 @@
 from publisher import send_message_sync
 
-if __name__ == "__main__":
-    send_message_sync(
-        "✅ BOT ATTIVO",
-        "Se vedi questo messaggio, il bot funziona al 100% 🚀"
-    )
+offers = [
+    {
+        "title": "Power Bank 20.000mAh – Offerta",
+        "link": "https://amzn.to/49pAAVm"
+    }
+]
+
+for offer in offers:
+    send_message_sync(offer["title"], offer["link"])
